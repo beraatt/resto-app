@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Menu;
-
-class MenuController extends Controller
+use App\Models\Table;
+class TableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
-        return view('admin.menus.index',compact('menus'));
+        $tables = Table::all();
+        return view('admin.tables.index',compact('tables'));
     }
 
     /**
@@ -26,7 +25,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('admin.menus.create');
+        return view('admin.tables.create');
     }
 
     /**
