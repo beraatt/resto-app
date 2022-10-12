@@ -14,6 +14,8 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct(){
-        Alert::success('Başarılı!',session('success_message'));
+        if(session('success_message')){
+            Alert::success('Başarılı', session('success_message'));
+        }
     }
 }

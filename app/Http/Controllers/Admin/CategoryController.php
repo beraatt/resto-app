@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryStoreRequest;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -38,13 +39,14 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
+
         $image = $request->file('image')->store('public/categories');
         Category::create([
             'name' => $request->name,
             'image' => $request->image,
             'description' => $request->description,
         ]);
-        return to_route('admin.categories.index')->withSuccessMessage('Başarıyla eklendi');
+        return redirect()->back()->with('message', 'IT WORKS!');
     }
 
     /**
