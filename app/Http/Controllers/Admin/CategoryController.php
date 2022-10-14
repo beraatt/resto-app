@@ -66,9 +66,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CategoryStoreRequest $category)
     {
-        //
+        return view('Admin.categories.edit',compact('category'));
     }
 
     /**
@@ -91,6 +91,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::find($id)->delete();
+        return to_route('admin.categories.index');
+
+
     }
 }
